@@ -1,3 +1,9 @@
+/**
+ * @author Adrien PESTEL
+ * @date 23/01/2022
+ * @version 1.0.0
+ * Classe permettant la lecture / traduction d'un fichier .frjava et d'en créer un fichier .java
+ */
 package frjava;
 
 import java.io.BufferedReader;
@@ -12,44 +18,46 @@ import java.util.stream.Collectors;
 public class Parser {
 
 	public static void main(String[] args) throws Exception {
-		if(args.length < 1) {
+		if(args.length != 1) {
 			throw new Exception("Mauvais nombre de paramètres");
 		}
 		
-		System.out.println(args[0]);
-		
+		//On récupère le bufferedReader associé au fichier
 		BufferedReader buffReader = Files.newBufferedReader(Paths.get("./"+args[0]), StandardCharsets.UTF_8);
 	    
-	    String stringToWrite = buffReader.lines().map((s) -> translate(s)).collect(Collectors.joining("\n"));
+		//On récupère la chaîne à écrire dans le fichier .java (traduit)
+	    String stringToWrite = buffReader.lines()
+	    								.map((s) -> translate(s))
+	    								.collect(Collectors.joining("\n"));
 		
 	    String nomFic = args[0];
 	    nomFic = nomFic.replace(".frjava",".java");
-		try {
+		try { //On essaye de créer le fichier .java
 		      File myObj = new File(nomFic);
-		      if (myObj.createNewFile()) {
-		        System.out.println("File created: " + myObj.getName());
-		      } else {
-		        System.out.println("File already exists.");
-		      }
+		      myObj.createNewFile();
 	    } catch (IOException e) {
-	      System.out.println("An error occurred.");
+	      System.out.println("Une erreur est survenue pendant la création du fichier.");
 	      e.printStackTrace();
 	    }
 		
-		try {
+		try { //On essaye d'écrire la chaine traduite dans le fichier
 		      FileWriter myWriter = new FileWriter(nomFic);
 		      myWriter.write(stringToWrite);
 		      myWriter.close();
-		      System.out.println("Successfully wrote to the file.");
-		    } catch (IOException e) {
-		      System.out.println("An error occurred.");
+		}catch (IOException e) {
+		      System.out.println("Une erreur est survenue pendant l'écriture du fichier.");
 		      e.printStackTrace();
-		    }
+		}
 	}
 	
-	private static String translate(String s) {
-		String sRet = s;
-		
+	
+	/**
+	 * Permet de traduire une chaîne française en anglais.
+	 * @param frenchString
+	 * @return englishString
+	 */
+	private static String translate(String frenchString) {
+		String sRet = frenchString;
 		
 		//Traduction des keywords de java
 		sRet = sRet.replaceAll("(\s|)abstrait(e|)(\s|)","\sabstract\s");
@@ -94,8 +102,10 @@ public class Parser {
 		sRet = sRet.replaceAll("(\s|)rien(\s|)","\svoid\s");
 		sRet = sRet.replaceAll("(\s|)tant(\s|)que(\s|)","\swhile\s");
 		
+		//Traduction des booléens
 		sRet = sRet.replaceAll("(\s|)vrai(\s|)","\strue\s");
 		sRet = sRet.replaceAll("(\s|)faux(\s|)","\sfalse\s");
+		
 				
 		return sRet;
 	}
