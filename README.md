@@ -19,11 +19,11 @@ write your french java code in a .frjava source file and run the commande `frjav
 
 # Installation
 ## FRANÇAIS
-- Ajoutez à votre fichier de profile (.bash_profile, .zshrc, etc.) la commande suivante `source <script frjava>` (Exemple : `source ~/frjava.sh`) 
+- Ajouter à votre fichier de profile (.bash_profile, .zshrc, etc.) la commande suivante `source <script frjava>` (Exemple : `source ~/frjava.sh` si le script est dans le répertoire $HOME) 
 - Ajoutez le jar à votre $CLASSPATH
-- Redémarrez votre terminal ou éxécuter `profile <fichier de profil>` pour ajouter la commande frjavac à votre terminal
+- Redémarrer votre terminal ou éxécuter `profile <fichier de profil>` pour ajouter la commande frjavac à votre terminal
 
 ## ENGLISH
-- Add to your profile file (.bash_profile, .zshrc, etc.) the following command line `source <frjava script>` -e.g. `source ~/frjava.sh`
+- Add to your profile file (.bash_profile, .zshrc, etc.) the following command line `source <frjava script>` -e.g. `source ~/frjava.sh` if the script's in your $HOME directory..
 - Add the jar to your $CLASSPATH
 - Restart your terminal or execute `profile <profile file>` in order to add frjavac to your terminal
