@@ -1,0 +1,34 @@
+publique classe Fonctions{
+    publique statique rien main(String... args){
+        String a = foo();
+        System.out.println(a);
+        
+        booléen b = buz();
+        System.out.println(b);
+
+        flottant c = biz();
+        System.out.println(c);
+
+        test();
+    }
+
+    publique statique String foo(){
+        retourner "Bonsoir";
+    }
+
+    publique statique booléen buz(){
+        si(vrai){
+            retourner faux;
+        }sinon{
+            retourner vrai;
+        }
+    }
+
+    publique statique réel biz(){
+        retourner 2f;
+    }
+
+    publique statique rien test(){
+        System.out.println("booléen");
+    }
+}

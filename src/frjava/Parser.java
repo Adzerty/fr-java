@@ -84,7 +84,7 @@ public class Parser {
 		sRet = sRet.replaceAll("(\s|)instancede(\s|)","\sinstanceof\s");
 		sRet = sRet.replaceAll("(\s|)entier(\s|)","\sint\s");
 		sRet = sRet.replaceAll("(\s|)nati(f|ve)(\s|)","\snative\s");
-		sRet = sRet.replaceAll("(\s|)nouv(eau|elle)(\s|)","\snew\s");
+		sRet = sRet.replaceAll("(\s|)nouv(el|eau|elle)(\s|)","\snew\s");
 		sRet = sRet.replaceAll("(\s|)nul(le|)(\s|)","\snull\s");
 		sRet = sRet.replaceAll("(\s|)paquetage(\s|)","\spackage\s");
 		sRet = sRet.replaceAll("(\s|)priv(é|e)(e|)(\s|)","\sprivate\s");
@@ -105,6 +105,11 @@ public class Parser {
 		//Traduction des booléens
 		sRet = sRet.replaceAll("(\s|)vrai(\s|)","\strue\s");
 		sRet = sRet.replaceAll("(\s|)faux(\s|)","\sfalse\s");
+		
+		//Todo 
+		/*
+		 * record, const
+		 */
 		
 				
 		return sRet;

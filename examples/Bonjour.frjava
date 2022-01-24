@@ -1,0 +1,5 @@
+publique classe Bonjour{
+    publique statique rien main(String... args){
+        System.out.println("Bonjout monde");
+    }
+}

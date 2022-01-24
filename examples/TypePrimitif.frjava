@@ -1,0 +1,19 @@
+publique classe TypePrimitif{
+    publique statique rien main(String... args){
+        //int
+        entier a = 1;
+
+        //float
+        flottant b = 1.0f;
+        réel c = 1.0f;
+        
+        //byte
+        octet d = 0;
+
+        //char
+        caractère e = 'a';
+
+        //boolean   true
+        booléen f = vrai;
+    }
+}   
